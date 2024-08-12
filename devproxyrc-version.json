@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/dev-proxy/main/schemas/v0.18.0/rc.schema.json",
+  "plugins": [
+    {
+      "name": "ApiCenterProductionVersionPlugin",
+      "enabled": true,
+      "pluginPath": "~appFolder/plugins/dev-proxy-plugins.dll",
+      "configSection": "apiCenterProductionVersionPlugin"
+    },
+    {
+      "name": "MarkdownReporter",
+      "enabled": true,
+      "pluginPath": "~appFolder/plugins/dev-proxy-plugins.dll"
+    }
+  ],
+  "urlsToWatch": [
+    "https://app-api-*.azurewebsites.net/*"
+  ],
+  "apiCenterProductionVersionPlugin": {
+    "subscriptionId": "@AZURE_SUBSCRIPTION_ID",
+    "resourceGroupName": "@AZURE_API_CENTER_RG",
+    "serviceName": "@AZURE_API_CENTER",
+    "workspaceName": "default"
+  }
+}

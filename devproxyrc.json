@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/dev-proxy/main/schemas/v0.18.0/rc.schema.json",
+  "plugins": [
+    {
+      "name": "OpenApiSpecGeneratorPlugin",
+      "enabled": false,
+      "pluginPath": "~appFolder/plugins/dev-proxy-plugins.dll"
+    },
+    {
+      "name": "ApiCenterOnboardingPlugin",
+      "enabled": true,
+      "pluginPath": "~appFolder/plugins/dev-proxy-plugins.dll",
+      "configSection": "apiCenterOnboardingPlugin"
+    },
+    {
+      "name": "MarkdownReporter",
+      "enabled": true,
+      "pluginPath": "~appFolder/plugins/dev-proxy-plugins.dll"
+    }
+  ],
+  "urlsToWatch": [
+    "https://app-api-*.azurewebsites.net/*"
+  ],
+  "apiCenterOnboardingPlugin": {
+    "subscriptionId": "@AZURE_SUBSCRIPTION_ID",
+    "resourceGroupName": "@AZURE_API_CENTER_RG",
+    "serviceName": "@AZURE_API_CENTER",
+    "workspaceName": "default",
+    "createApicEntryForNewApis": false
+  }
+}
